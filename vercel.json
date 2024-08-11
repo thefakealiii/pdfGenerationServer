@@ -3,7 +3,7 @@
   "routes": [
     {
       "src": "/api/generate-pdf",
-      "middleware": true
+      "middleware": 0
     }
   ]
 }
