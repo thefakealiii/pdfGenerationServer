@@ -1,16 +1,10 @@
 {
-  "engines": {
-    "node": ">=16.16.0"
-  },
+ 
   "dependencies": {
     "chromium": "^3.0.3",
     "cors": "^2.8.5",
     "express": "^4.19.2",
     "puppeteer-core": "^10.4.0"
   },
-  "scripts": {
-    "start": "node index.js",
-    "build": "echo 'No build step required'",
-    "test": "echo 'No test step required'"
-  }
+
 }
