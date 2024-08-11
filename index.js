@@ -3,7 +3,7 @@ import { NextResponse } from 'next/server';
 import puppeteer from 'puppeteer-core';
 import chromium from 'chromium';
 
-export async function middleware(request) {
+export async function middleware(request, event) {
   try {
     const browser = await puppeteer.launch({
       executablePath: chromium.path,
