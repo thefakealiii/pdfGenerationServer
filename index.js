@@ -1,5 +1,4 @@
-// index.js
-import { NextResponse } from 'next/server';
+import { Response } from 'node-fetch';
 import puppeteer from 'puppeteer-core';
 import chromium from 'chromium';
 
@@ -20,7 +19,7 @@ export async function middleware(request, event) {
 
     await browser.close();
 
-    return new NextResponse(pdfBuffer, {
+    return new Response(pdfBuffer, {
       status: 200,
       headers: {
         'Content-Type': 'application/pdf',
@@ -29,7 +28,7 @@ export async function middleware(request, event) {
     });
   } catch (err) {
     console.error('Error generating PDF:', err); // Log the error to the console
-    return new NextResponse('Error generating PDF', { status: 500 });
+    return new Response('Error generating PDF', { status: 500 });
   }
 }
 
