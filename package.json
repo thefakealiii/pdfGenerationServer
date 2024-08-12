@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "node-fetch": "^2.6.7",
-    "wkhtmltopdf": "^0.3.6"
+    "wkhtmltopdf-bin": "^0.12.6"
   },
   "devDependencies": {
     "vercel": "^28.4.17"
