@@ -1,6 +1,7 @@
 import path from 'path';
 import { exec } from 'child_process';
 import fs from 'fs';
+import wkhtmltopdf from 'wkhtmltopdf-bin';
 
 export default async (req, res) => {
   try {
@@ -11,7 +12,7 @@ export default async (req, res) => {
 
     // Execute wkhtmltopdf with the HTML content
     await new Promise((resolve, reject) => {
-      exec(`./wkhtmltopdf --page-size A4 - ${pdfPath}`, (error, stdout, stderr) => {
+      exec(`${wkhtmltopdf.path} --page-size A4 - ${pdfPath}`, (error, stdout, stderr) => {
         if (error) {
           console.error('Error generating PDF:', error);
           reject(error);
