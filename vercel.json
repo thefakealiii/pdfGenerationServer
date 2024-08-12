@@ -5,8 +5,9 @@
       "src": "api/generate-pdf.js",
       "use": "@vercel/node",
       "config": {
-        
+        "maxLambdaSize": "50mb",
         "includeFiles": [
+          "wkhtmltopdf",
           "node_modules/**"
         ]
       }
