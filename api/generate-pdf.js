@@ -1,23 +1,31 @@
-import puppeteer from 'puppeteer-core';
-import chrome from 'chrome-aws-lambda';
+import path from 'path';
+import { exec } from 'child_process';
+import fs from 'fs';
 
 export default async (req, res) => {
   try {
-    const browser = await puppeteer.launch({
-      args: chrome.args,
-      executablePath: await chrome.executablePath,
-      headless: chrome.headless,
-    });
-
     const htmlContent = await req.body;
     console.log('Received HTML Content:', htmlContent);
 
-    const page = await browser.newPage();
-    await page.setContent(htmlContent, { waitUntil: 'networkidle0' });
+    const pdfPath = path.join('/tmp', 'report.pdf');
 
-    const pdfBuffer = await page.pdf({ format: 'A4' });
+    // Execute wkhtmltopdf with the HTML content
+    await new Promise((resolve, reject) => {
+      exec(`./wkhtmltopdf --page-size A4 - ${pdfPath}`, (error, stdout, stderr) => {
+        if (error) {
+          console.error('Error generating PDF:', error);
+          reject(error);
+        } else {
+          resolve();
+        }
+      });
+    });
 
-    await browser.close();
+    // Read the generated PDF file
+    const pdfBuffer = fs.readFileSync(pdfPath);
+
+    // Clean up the temporary PDF file
+    fs.unlinkSync(pdfPath);
 
     res.setHeader('Content-Type', 'application/pdf');
     res.setHeader('Content-Disposition', 'attachment; filename=report.pdf');
