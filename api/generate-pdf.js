@@ -1,12 +1,12 @@
 import puppeteer from 'puppeteer-core';
-import chrome from 'chrome-aws-lambda';
 
 export default async (req, res) => {
   try {
     const browser = await puppeteer.launch({
-      args: chrome.args,
-      executablePath: await chrome.executablePath,
-      headless: chrome.headless,
+      // Use the bundled Chromium binary
+      executablePath: '/var/task/node_modules/puppeteer-core/.local-chromium/mac-1030534/chrome-mac/Chromium.app/Contents/MacOS/Chromium',
+      args: ['--no-sandbox', '--disable-gpu', '--window-size=1920,1080'],
+      headless: true,
     });
 
     const htmlContent = await req.body;
