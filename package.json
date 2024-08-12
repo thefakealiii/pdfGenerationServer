@@ -1,15 +1,15 @@
 {
   "name": "pdf-generation-server",
   "version": "1.0.0",
-  "description": "Serverless Function to generate PDF reports",
-  "main": "api/generate-pdf.js",
+  "description": "Edge Function to generate PDF reports",
+  "main": "index.js",
   "scripts": {
     "dev": "vercel dev",
     "build": "echo 'No build script needed'"
   },
   "dependencies": {
     "chrome-aws-lambda": "^10.1.0",
-    "puppeteer-core": "^10.1.0"
+    "puppeteer-core": "^13.7.0"
   },
   "devDependencies": {
     "vercel": "^28.4.17"
