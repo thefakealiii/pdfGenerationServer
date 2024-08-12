@@ -3,7 +3,13 @@
   "builds": [
     {
       "src": "api/generate-pdf.js",
-      "use": "@vercel/node"
+      "use": "@vercel/node",
+      "config": {
+        "maxLambdaSize": "50mb",
+        "includeFiles": [
+          "node_modules/**"
+        ]
+      }
     }
   ],
   "routes": [
