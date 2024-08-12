@@ -2,7 +2,7 @@
   "version": 2,
   "routes": [
     {
-      "src": "/generate-pdf",
+      "src": "/api/generate-pdf",
       "middleware": 0
     }
   ]
