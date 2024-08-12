@@ -1,7 +1,7 @@
 import path from 'path';
 import { exec } from 'child_process';
 import fs from 'fs';
-import wkhtmltopdf from 'wkhtmltopdf-bin';
+import wkhtmltopdf from 'wkhtmltopdf';
 
 export default async (req, res) => {
   try {
