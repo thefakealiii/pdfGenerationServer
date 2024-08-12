@@ -7,7 +7,6 @@
       "config": {
         "maxLambdaSize": "50mb",
         "includeFiles": [
-          "wkhtmltopdf",
           "node_modules/**"
         ]
       }
