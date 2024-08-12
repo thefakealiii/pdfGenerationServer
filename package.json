@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vercel dev",
     "build": "echo 'No build script needed'",
-    "prebuild": "apt-get update && apt-get install -y wkhtmltopdf" // Replace with appropriate command
+    "prebuild": "apt-get update && apt-get install -y wkhtmltopdf" 
   },
   "dependencies": {
     "node-fetch": "^2.6.7"
