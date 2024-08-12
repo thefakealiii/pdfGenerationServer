@@ -5,11 +5,11 @@
   "main": "index.js",
   "scripts": {
     "dev": "vercel dev",
-    "build": "echo 'No build script needed'"
+    "build": "echo 'No build script needed'",
+    "prebuild": "apt-get update && apt-get install -y wkhtmltopdf" // Replace with appropriate command
   },
   "dependencies": {
-    "node-fetch": "^2.6.7",
-    "wkhtmltopdf": "^0.4.0"
+    "node-fetch": "^2.6.7"
   },
   "devDependencies": {
     "vercel": "^28.4.17"
