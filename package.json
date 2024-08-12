@@ -8,8 +8,8 @@
     "build": "echo 'No build script needed'"
   },
   "dependencies": {
-    "chrome-aws-lambda": "^10.1.0",
-    "puppeteer-core": "^13.7.0"
+    "node-fetch": "^2.6.7",
+    "wkhtmltopdf": "^0.3.6"
   },
   "devDependencies": {
     "vercel": "^28.4.17"
